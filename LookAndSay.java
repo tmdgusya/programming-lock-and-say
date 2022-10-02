@@ -1,9 +1,14 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class LookAndSay {
     private static String ant(int n) {
         String s = "1";
         for (int line = 0; line < n; line++) {
             s = next(s);
         }
+        // var result = next2(List.of(1,2,2,1,1,1));
+        // s = result.toString();
         return s;
     }
 
@@ -27,8 +32,12 @@ public class LookAndSay {
         return result;
     }
 
+    private static List<Integer> next2(List<Integer> ns) {
+        return ListUtils.concat(ListUtils.map(g -> List.of(g.size(), g.get(0)), ListUtils.group(ns)));
+    }
+
     public static void main(String... args) {
-        var result = ant(10); 
+        var result = ant(1); 
         System.out.println(result);
     }
 }
